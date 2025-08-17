@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+
+.completed {
+    text-decoration: line-through;
+    color: #a53860;
+    border: 1px solid #a53860;
+    opacity: 0.7;
+}
+
+.overdue {
+    border: 2px solid #da627d !important;
+    background-color: rgba(218, 98, 125, 0.1);
+}
+
+.overdue .task-info {
+    color: #da627d;
+}
+
+body {
+    background: linear-gradient(135deg, #f9dbbd 0%, #ffa5ab 50%, #da627d 100%);
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+#todo-container {
+    background: #450920;
+    width: 500px;
+    margin: 0 auto;
+    border: 2px solid #a53860;
+    padding: 20px;
+    color: #f9dbbd;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#header {
+    margin: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #f9dbbd;
+    text-shadow: 2px 2px 4px rgba(69, 9, 32, 0.5);
+}
+
+#progress-container {
+    margin: 15px 0;
+    text-align: left;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+#progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #da627d, #ffa5ab);
+    width: 0%;
+    transition: width 0.5s ease;
+    border-radius: 10px;
+}
+
+#progress-text {
+    font-size: 12px;
+    color: #ffa5ab;
+    font-weight: 500;
+}
+
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #ffa5ab;
+}
+
+.input-container {
+    position: relative;
+    flex: 0 0 auto;
+    width: 250px;
+    min-height: 44px;
+}
+
+.floating-label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #450920;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    opacity: 0.7;
+    font-family: 'Raleway', sans-serif;
+    z-index: 1;
+    font-weight: normal;
+}
+
+.floating-label.active,
+#input-box:focus+.floating-label,
+#input-box:valid+.floating-label,
+#input-box:not(:placeholder-shown)+.floating-label {
+    top: -12px;
+    left: 8px;
+    font-size: 12px;
+    padding: 0 4px;
+    opacity: 1;
+    color: #da627d;
+    font-weight: 500;
+    transform: translateY(0);
+}
+
+#todo-form {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 20px;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+}
+
+#empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #ffa5ab;
+    animation: fadeInUp 0.5s ease;
+}
+
+.empty-illustration {
+    margin-bottom: 20px;
+}
+
+.empty-illustration img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(165, 56, 96, 0.2);
+    transition: transform 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+}
+
+.empty-illustration img:hover {
+    transform: scale(1.05);
+}
+
+.empty-icon {
+    margin-bottom: 16px;
+    animation: bounce 2s infinite;
+}
+
+.empty-icon svg {
+    filter: drop-shadow(0 4px 15px rgba(165, 56, 96, 0.3));
+}
+
+#empty-state h3 {
+    margin: 16px 0 8px 0;
+    color: #f9dbbd;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+#empty-state p {
+    margin: 0;
+    opacity: 0.8;
+    font-size: 16px;
+    color: #ffa5ab;
+    font-style: italic;
+}
+
+#organize-controls {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #a53860;
+    border-radius: 8px;
+    background-color: rgba(165, 56, 96, 0.1);
+}
+
+#organize-controls h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #ffa5ab;
+    font-weight: 600;
+}
+
+.animated-btn,
+#organize-controls button {
+    margin: 3px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #da627d;
+    color: #f9dbbd;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-btn:hover,
+#organize-controls button:hover {
+    background-color: #a53860;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.danger-btn {
+    background-color: #8B0000 !important;
+}
+
+.danger-btn:hover {
+    background-color: #660000 !important;
+}
+
+.button-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+}
+
+.task-info {
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+.task-info small {
+    display: block;
+    font-size: 11px;
+    margin: 2px 0;
+    color: #ffa5ab;
+}
+
+.due-time {
+    color: #f9dbbd !important;
+    font-weight: 500;
+}
+
+#input-box {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #a53860;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    background-color: #f9dbbd;
+    color: #450920;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    min-height: 44px;
+}
+
+#input-box:focus {
+    outline: none;
+    border-color: #da627d;
+    box-shadow: 0 0 8px rgba(218, 98, 125, 0.5);
+    transform: translateY(-1px);
+}
+
+#input-button {
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #da627d;
+    color: #f9dbbd;
+    position: relative;
+    overflow: hidden;
+    min-height: 44px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+#input-button:hover {
+    background-color: #a53860;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#input-button:active {
+    transform: translateY(0);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+}
+
+li {
+    border: 2px solid #a53860;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 12px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: rgba(249, 219, 189, 0.1);
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    background-color: rgba(249, 219, 189, 0.15);
+    transform: translateY(-1px);
+}
+
+.task-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.task-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-left label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    color: #f9dbbd;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 8px;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.edit-btn,
+.delete-btn {
+    color: #f9dbbd;
+    cursor: pointer;
+    border: 1px solid #da627d;
+    padding: 4px 10px;
+    background: #da627d;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    background: #a53860;
+    border-color: #a53860;
+    transform: translateY(-1px);
+}
+
+.counter-container {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    color: #ffa5ab;
+}
+
+#task-counters {
+    background-color: rgba(165, 56, 96, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #a53860;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Footer Styling */
+#app-footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    color: #f9dbbd;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.8;
+    text-shadow: 1px 1px 2px rgba(69, 9, 32, 0.7);
+}
+
+#app-footer p {
+    margin: 0;
+    letter-spacing: 0.5px;
+}
