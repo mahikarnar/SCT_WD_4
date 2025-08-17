@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Container for the todo list -->
+    <div id="todo-container">
+        <div id="header">
+            <h1>To Do List 🀢</h1> <!--Mahjong Tile Plum-->
+        </div>
+
+        <!-- Progress bar -->
+        <div id="progress-container">
+            <div id="progress-bar">
+                <div id="progress-fill"></div>
+            </div>
+            <span id="progress-text">0% Complete</span>
+        </div>
+
+        <!-- Input box -->
+        <div id="todo-form">
+            <div class="input-container">
+                <input type="text" class="input-item" name="input_box" id="input-box" placeholder=" " required />
+                <label for="input-box" class="floating-label">Add Task</label>
+            </div>
+
+            <button id="input-button" onclick="addTask()">
+                <span>Add</span>
+                <div class="button-ripple"></div>
+            </button>
+        </div>
+
+
+        <h2>Task List</h2>
+
+        <!-- Organize controls -->
+        <div id="organize-controls">
+            <h3>Organize Tasks</h3>
+            <button onclick="sortByCreatedDate()" class="animated-btn">
+                <span>Sort by Created Date</span>
+                <div class="button-ripple"></div>
+            </button>
+            <button onclick="sortByDueDate()" class="animated-btn">
+                <span>Sort by Due Date</span>
+                <div class="button-ripple"></div>
+            </button>
+            <button onclick="sortAlphabetically()" class="animated-btn">
+                <span>Sort Alphabetically</span>
+                <div class="button-ripple"></div>
+            </button>
+            <button onclick="sortByStatus()" class="animated-btn">
+                <span>Sort by Status</span>
+                <div class="button-ripple"></div>
+            </button>
+            <button onclick="clearCompleted()" class="animated-btn danger-btn">
+                <span>Clear Completed</span>
+                <div class="button-ripple"></div>
+            </button>
+            <button onclick="clearAll()" class="animated-btn danger-btn">
+                <span>Clear All</span>
+                <div class="button-ripple"></div>
+            </button>
+        </div>
+
+        <!-- No tasks message -->
+        <div id="empty-state" style="display: none;">
+            <div class="empty-illustration">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/girl-thinking-about-her-to-do-list-4487720-3711499.png"
+                    alt="Girl thinking about tasks"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="empty-icon" style="display: none;">
+                    <svg width="120" height="120" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffa5ab;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#da627d;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Notepad image with transition -->
+                        <rect x="50" y="40" width="100" height="120" rx="10" fill="url(#grad1)" />
+                        <rect x="55" y="45" width="90" height="110" rx="5" fill="#f9dbbd" />
+                        <line x1="65" y1="65" x2="135" y2="65" stroke="#da627d" stroke-width="2" opacity="0.5" />
+                        <line x1="65" y1="80" x2="125" y2="80" stroke="#da627d" stroke-width="2" opacity="0.5" />
+                        <line x1="65" y1="95" x2="130" y2="95" stroke="#da627d" stroke-width="2" opacity="0.5" />
+                        <!-- Heart -->
+                        <path
+                            d="M100 120 C95 115, 85 115, 85 125 C85 135, 100 145, 100 145 C100 145, 115 135, 115 125 C115 115, 105 115, 100 120 Z"
+                            fill="#a53860" opacity="0.8" />
+                        <!-- Sparkles -->
+                        <circle cx="35" cy="50" r="3" fill="#ffa5ab" opacity="0.7">
+                            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" />
+                        </circle>
+                        <circle cx="165" cy="70" r="2" fill="#da627d" opacity="0.6">
+                            <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" />
+                        </circle>
+                        <circle cx="40" cy="140" r="2.5" fill="#a53860" opacity="0.8">
+                            <animate attributeName="opacity" values="0.8;1;0.8" dur="2.5s" repeatCount="indefinite" />
+                        </circle>
+                    </svg>
+                </div>
+            </div>
+            <h3>No tasks yet!</h3>
+            <p>Add your first task to bloom.</p>
+        </div>
+
+        <ul id="list-container"></ul>
+        <hr />
+        <!-- Task lists -->
+        <div class="counter-container">
+            <div id="task-counters">
+                Completed: <span id="completed-counter">0</span> | Uncompleted:
+                <span id="uncompleted-counter">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="app-footer">
+        <p>&copy; 2025 To-Do App | All rights reserved</p>
+    </footer>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
