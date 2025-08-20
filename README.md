@@ -1,5 +1,5 @@
 # SCT_WD_4 : To-Do List Web Application
-SkillCraft - Web Development Internship Task 04
+SkillCraft Technology - Web Development Internship Task 04
 
 *A fully interactive To-Do List app built with JavaScript, featuring task organization, date/time tracking, beautiful pink-themed design, and delightful user experience.*
 
