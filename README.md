@@ -103,4 +103,4 @@ The To-Do List app features:
 🩷 **This project showcases modern web development skills, productivity app concepts, and interactive user experience design**
 
 **Hashtags included in my LinkedIn post submissions:**  
-`#SkillCraftTechnology #internship #WebDevelopment #ToDoList #ProductivityApp`
+`#SkillCraftTechnology #internship #WebDevelopment #ToDoList #Productivity`
