@@ -3,6 +3,13 @@ SkillCraft Technology - Web Development Internship Task 04
 
 *A fully interactive To-Do List app built with JavaScript, featuring task organization, date/time tracking, beautiful pink-themed design, and delightful user experience.*
 
+## 🌐 Live Demo
+
+**Deployed on Vercel**  
+🔗 https://todo-eta-pearl.vercel.app/
+
+---
+
 ## 🩷 Features
 
 ### Core Task Functions
